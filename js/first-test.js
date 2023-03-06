@@ -56,6 +56,9 @@ function displayBooks(){
         bookDiv.appendChild(titleDiv);
         bookDiv.appendChild(authorDiv);
         bookDiv.appendChild(pagesDiv);
+
+        let buttonDiv = document.createElement("div");
+        buttonDiv.classList.add('buttonDiv');
         
         let readButton = document.createElement("button");
         if ( myLibrary[book].read ){
@@ -66,12 +69,12 @@ function displayBooks(){
             readButton.textContent = "Not read";
             readButton.classList.add('unread-btn')
         }
-        
+
         readButton.onclick = () => {
             (myLibrary[book].read === true ? myLibrary[book].read = false : myLibrary[book].read = true)
             displayBooks();
         };
-        bookDiv.appendChild(readButton);
+        buttonDiv.appendChild(readButton);
         
         let removeButton = document.createElement("button");
         removeButton.textContent = "Remove";
@@ -80,8 +83,9 @@ function displayBooks(){
             displayBooks();
         };
         removeButton.classList.add('remove-btn');
-        bookDiv.appendChild(removeButton);
-        
+        buttonDiv.appendChild(removeButton);
+        bookDiv.appendChild(buttonDiv);
+
         bookContainer.appendChild(bookDiv);
     }
 }
@@ -95,6 +99,6 @@ function createBook(title, author, pages, read){
 
 
 
-addBookToLibrary('a','a','3', true);
-addBookToLibrary('b','b','33', false);
+addBookToLibrary('Don Quijote de la Mancha','Miguel de Cervantes Saavedra','1345', true);
+addBookToLibrary('La Iliada','Homero','334', false);
 displayBooks();

@@ -71,21 +71,33 @@ table {
 }
 
 .bookCard{
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    align-content: center;
     align-items: center;
+    width: 350px;
+    background-color: white;
     margin: 20px;
     border-radius: 15px;
 }
 
 .bookCard > * {
-    margin-top: 20px;
+    text-align: center;
 }
 
-.bookCard > button:last-child{
-    margin-bottom:20px;
+.buttonDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.buttonDiv > button {
+    margin-top: 20px;
 }
 
 #bookForm{
